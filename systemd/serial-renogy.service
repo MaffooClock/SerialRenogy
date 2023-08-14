@@ -1,0 +1,14 @@
+[Unit]
+Description=SerialRenogy
+
+[Service]
+Restart=always
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production
+Environment=SR_SERIALPORT=/dev/ttyUSB0
+Environment=SR_TCPPORT=8080
+WorkingDirectory=/opt/SerialRenogy
+ExecStart=serial-renogy
+
+[Install]
+WantedBy=multi-user.target
