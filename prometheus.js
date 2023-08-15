@@ -29,7 +29,7 @@ exports.prometheusDataMap = {
     },
     loadCurrent: {
         name: 'renogy_load_current',
-        help: 'Load CUrrent (A)'
+        help: 'Load Current (A)'
     },
     loadPower: {
         name: 'renogy_load_power',
@@ -42,7 +42,7 @@ exports.prometheusDataMap = {
     },
     solarCurrent: {
         name: 'renogy_solar_current',
-        help: 'Solar CUrrent (A)'
+        help: 'Solar Current (A)'
     },
     solarPower: {
         name: 'renogy_solar_power',
@@ -71,7 +71,7 @@ exports.prometheusDataMap = {
     },
     dischgPMaxToday: {
         name: 'renogy_today_battery_discharge_power_max',
-        help: 'Discharge Power Maximum TOday'
+        help: 'Discharge Power Maximum Today'
     },
     chgAHToday: {
         name: 'renogy_today_charge_ah',
@@ -101,7 +101,7 @@ exports.prometheusDataMap = {
     },
     totalBattFullCharges: {
         name: 'renogy_battery_full_charge_count',
-        help: 'Batterh Full Charge Count'
+        help: 'Battery Full Charge Count'
     },
     totalChargeAH: {
         name: 'renogy_total_charge_ah',
