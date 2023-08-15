@@ -3212,7 +3212,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "pi_temperature_celcius * 1.8 + 32",
+          "expr": "renogy_host_cpu_temp * 1.8 + 32",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -3233,7 +3233,7 @@
           ]
         }
       ],
-      "title": "Raspberry Pi Temp (F)",
+      "title": "Host CPU Temperature (F)",
       "type": "timeseries"
     }
   ],

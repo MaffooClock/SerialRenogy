@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+const platform = require( 'os' ).platform();
+
 const Prometheus = require( 'prom-client' );
 const Registry   = Prometheus.Registry;
 const register   = new Registry();
@@ -10,6 +12,7 @@ const cli     = require( './cli' );
 const port    = cli.args.port;
 const host    = cli.args.address;
 
+const Host   = require( './host' );
 const Renogy = require( './renogy' );
 const { prometheusDataMap } = require( './prometheus' );
 let renogyData, controllerInfo = null;
@@ -74,7 +77,7 @@ async function initRegister()
     logger.info( '...metrics ready.' )
 }
 
-async function readData()
+async function readRenogyData()
 {    
     try {
         renogyData = await Renogy.getData();
@@ -91,13 +94,24 @@ async function readData()
     }
 }
 
+async function readHostData()
+{
+    const hostCpuTemp = await Host.getCpuTemp();
+
+    if( hostCpuTemp )
+        register.getSingleMetric( 'renogy_host_cpu_temp' ).set( hostCpuTemp );
+}
+
 app.listen( port, host, () => {
 
     initRegister();
 
     // We refresh the metrics register on a timed loop instead of per-request so that data is ready to go immediately when
     // requested, and also as a simple measure to reduce load for spammy requests that are repeated too frequently.
-    setInterval( readData, 1000 );
+    setInterval( readRenogyData, 1000 );
+
+    if( platform === 'linux' )
+        setInterval( readHostData,   5000 );
 
     logger.info( `SerialRenogy is ready to service requests on http://${host}:${port}/` );
 });

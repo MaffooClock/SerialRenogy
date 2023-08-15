@@ -133,5 +133,10 @@ exports.prometheusDataMap = {
     fault: {
         name: 'renogy_fault_status',
         help: 'Controller fault status (0=OK)'
+    },
+
+    cpuTemp: {
+        name: 'renogy_host_cpu_temp',
+        help: 'Host CPU temperature (°C)'
     }
 };
