@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-const platform = require( 'os' ).platform();
-
 const Prometheus = require( 'prom-client' );
 const Registry   = Prometheus.Registry;
 const register   = new Registry();
@@ -109,9 +107,7 @@ app.listen( port, host, () => {
     // We refresh the metrics register on a timed loop instead of per-request so that data is ready to go immediately when
     // requested, and also as a simple measure to reduce load for spammy requests that are repeated too frequently.
     setInterval( readRenogyData, 1000 );
-
-    if( platform === 'linux' )
-        setInterval( readHostData,   5000 );
+    setInterval( readHostData,   5000 );
 
     logger.info( `SerialRenogy is ready to service requests on http://${host}:${port}/` );
 });
