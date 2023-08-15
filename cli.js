@@ -34,7 +34,7 @@ const argv = yargs
     .help()
     .alias( 'help', 'h' )
     .epilogue( 'For more information, check out the project repository at https://github.com/MaffooClock/SerialRenogy' )
-    .env( 'SERIALRENOGY' )
+    .env( 'SR' )
     .demandOption( 'serialport', 'Serial port not specified' )
     .wrap( yargs.terminalWidth() )
     .argv;
