@@ -132,6 +132,6 @@ exports.prometheusDataMap = {
 
     fault: {
         name: 'renogy_fault_status',
-        help: 'Indicates whether the controller is in fault status (0=OK)'
+        help: 'Controller fault status (0=OK)'
     }
 };
