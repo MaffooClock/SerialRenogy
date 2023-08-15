@@ -96,17 +96,20 @@ As of August 2023, this utility supports all known data fields available in the 
 
 The term "street light" just means load, except brightness refers to a 0-100% output, which would only be used if the load were a light.  Most users will probably ignore the brightness field and just focus on the load status, which will be either on or off.
 
+
 ### Charging State
 
 The charging state will be one of these values, based on the solar power coming in and current battery level.  Some of these may not apply, depending on whether you have a PWM or a MPPT controller.
 
-- Charging Deactivated
-- Charging Activated
-- MPPT Mode
-- Equalizing Mode
-- Boost Mode
-- Floating Point Charging Mode
-- Current Limiting (Over-power)
+| Value | Status               |
+|:-----:|:---------------------|
+|   0   | Charging Deactivated |
+|   1   | Charging Activated   |
+|   2   | MPPT                 |
+|   3   | Equalizing           |
+|   4   | Boost                |
+|   5   | Floating             |
+|   6   | Current Limiting     |
 
 
 ### Faults
