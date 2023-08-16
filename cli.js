@@ -39,7 +39,7 @@ const argv = yargs
     .epilogue( `Environment variables set as SR_{OPTION} will be used to set options.  They can also be set in "${__dirname}/.env".` )
     .env( 'SR' )
     .demandOption( 'serialport', 'Serial port not specified' )
-    .wrap( yargs.terminalWidth() )
+    .wrap( Math.min( yargs.terminalWidth(), 120 ) )
     .argv;
 
 module.exports = {
