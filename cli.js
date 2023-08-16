@@ -1,3 +1,5 @@
+
+require( 'dotenv' ).config();
 const yargs = require( 'yargs' );
 
 const argv = yargs
@@ -34,6 +36,7 @@ const argv = yargs
     .help()
     .alias( 'help', 'h' )
     .epilogue( 'For more information, check out the project repository at https://github.com/MaffooClock/SerialRenogy' )
+    .epilogue( `Environment variables set as SR_{OPTION} will be used to set options.  They can also be set in "${__dirname}/.env".` )
     .env( 'SR' )
     .demandOption( 'serialport', 'Serial port not specified' )
     .wrap( yargs.terminalWidth() )
