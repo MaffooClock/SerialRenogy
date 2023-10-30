@@ -7,7 +7,7 @@ const register   = new Registry();
 const logger  = require( './logger' );
 
 const cli     = require( './cli' );
-const port    = cli.args.port;
+const port    = cli.args.tcpport;
 const host    = cli.args.address;
 
 const Host   = require( './host' );

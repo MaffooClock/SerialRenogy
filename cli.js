@@ -21,7 +21,7 @@ const argv = yargs
         type:        'string',
         default:     'localhost'
     })
-    .option( 'port', {
+    .option( 'tcpport', {
         alias:       'p',
         description: 'The TCP port on which to publish the Prometheus metrics',
         type:        'integer',
