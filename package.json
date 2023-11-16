@@ -1,6 +1,6 @@
 {
   "name": "serial-renogy",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "NodeJS utility to retrieve data from Renogy solar controllers and output Prometheus-compatible data",
   "main": "index.js",
   "scripts": {
