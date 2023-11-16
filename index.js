@@ -23,6 +23,8 @@ const app     = express()
 app.use( express.static( 'web' ) );
 
 app.use( ( request, response, next ) => {
+    response.header( 'Access-Control-Allow-Origin', '*' );
+    response.header( 'Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept' );
     logger.trace( `Received a request for '${request.url}'` );
     next();
 });
