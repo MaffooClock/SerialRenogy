@@ -152,14 +152,14 @@ If you're using a standard computer for this, and it has a RS-232 port (usually 
 > [!CAUTION]
 > The UART pins found on Raspberry Pi's, microcontrollers, etcetera are TTL-serial, which is **not** the same as RS-232.  TTL voltages will be at the host VCC level (3.3 or 5 volts), while RS-232 can be as large as -25V to +25V (although most PCs might be in the -13V to +13V) -- connect RS-232 directly to the UART pins on your Pi or microcontroller and it's likely that you'll [let out the magic smoke](https://en.wikipedia.org/wiki/Magic_smoke)!
 
-Actually, there _is_ a way to use the UART pins on your Raspberry Pi instead of plugging in a USB-to-serial dongle by wiring a RS232-to-TTL converter, which uses a MAX3232 chip to safely convert the signal levels (here's one on [Amazon](https://www.amazon.com/dp/B0B19ZCDSL)).  Wiring this up is simple, but I'm not going to cover it in this guide.
+Actually, there _is_ a way to use the UART pins on your Raspberry Pi instead of plugging in a USB-to-serial dongle by wiring a RS232-to-TTL converter, which uses a MAX3232 chip to safely convert the signal levels (here's one on [Amazon](https://amzn.to/3sKNYlJ)).  Wiring this up is simple, but I'm not going to cover it in this guide.
 
 
 ### Do I have to make my own serial cable?
 
 <img src="github/renogy-usb-serial-cable.jpg" align="left" height="100"> Rumor has it that Renogy used to offer a USB-to-serial cable with a properly wired RJ12 connector, but it is no longer available.  Building one is easy, as the components required are readily available and the information on building it can be found anywhere (such as in the section below!).
 
-But there's some good news!  I have discovered that some third-party manufacturers/vendors are offering clones on [Amazon](https://www.amazon.com/dp/B07JGRJR4V) and [AliExpress](https://www.aliexpress.us/item/3256803994036649.htm).  These use FTDI chips that are compatible with Windows (driver installation required) and Linux (native kernal support).
+But there's some good news!  I have discovered that some third-party manufacturers/vendors are offering clones on [Amazon](https://amzn.to/3sRrTBY) and [AliExpress](https://www.aliexpress.us/item/3256803994036649.htm).  These use FTDI chips that are compatible with Windows (driver installation required) and Linux (native kernal support).
 
 
 ### Building a cable
