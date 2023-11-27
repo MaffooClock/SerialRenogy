@@ -4,7 +4,7 @@ A NodeJS utility to retrieve data from a Renogy solar controllers via RS-232 and
 
 ![Grafana Dashboard](github/grafana-dashboard.png)
 
-> **Note**
+> [!NOTE]
 > This software provides read-only access to your solar controller; you can not change any parameters with this software.
 
 This software is licensed under the [MIT License](https://opensource.org/licenses/MIT).
@@ -39,7 +39,7 @@ From [sophienyaa/NodeRenogy](https://github.com/sophienyaa/NodeRenogy):
 
 As of August 2023, this utility supports all known data fields available in the Renogy controller per their own documentation.  A copy of this document is available in [reference/renogy-serial-protocol.pdf](reference/renogy-serial-protocol.pdf) for reference.
 
-> **Note**
+> [!NOTE]
 > I assume it's okay to share it here since it was originally posted in [a public forum](https://renogy.boards.net/post/1939/thread) by a Renogy employee.
 
 ### Device information:
@@ -149,7 +149,7 @@ Renogy controllers use either RS-232 or RS-485 for serial communications, so you
 
 If you're using a standard computer for this, and it has a RS-232 port (usually a DB-9 or DB-25 connector), you're golden.  If not, or if you're using a SBC like a Raspberry Pi or similar, you can use a USB-to-serial dongle -- these are plentiful on Amazon and AliExpress, just make sure you get one with a well-known chip from FTDI.
 
-> **Warning**
+> [!CAUTION]
 > The UART pins found on Raspberry Pi's, microcontrollers, etcetera are TTL-serial, which is **not** the same as RS-232.  TTL voltages will be at the host VCC level (3.3 or 5 volts), while RS-232 can be as large as -25V to +25V (although most PCs might be in the -13V to +13V) -- connect RS-232 directly to the UART pins on your Pi or microcontroller and it's likely that you'll [let out the magic smoke](https://en.wikipedia.org/wiki/Magic_smoke)!
 
 Actually, there _is_ a way to use the UART pins on your Raspberry Pi instead of plugging in a USB-to-serial dongle by wiring a RS232-to-TTL converter, which uses a MAX3232 chip to safely convert the signal levels (here's one on [Amazon](https://www.amazon.com/dp/B0B19ZCDSL)).  Wiring this up is simple, but I'm not going to cover it in this guide.
@@ -186,7 +186,7 @@ Ideally you would install/run this on a device that is connected to your solar c
 
 You will first need to ensure you have NodeJS v18+ installed on your device.
 
-> **Note**
+> [!IMPORTANT]
 > If you installed a version of NodeJS via `apt-get`, please check the version with `node -v` and ensure it's at least v18 -- some distributions are known to host very old versions of NodeJS, and if that's the case for you, you'll need to uninstall it and install a more recent version manually (more information on that [here](https://github.com/nodesource/distributions)).
 
 
@@ -243,7 +243,7 @@ Since the main idea of this utility is for it to run all the time, a systemd ser
 1. Copy the [`serial-renogy.service`](systemd/serial-renogy.service) file from the repo into `/etc/systemd/system/`.
 
 2. Edit the new `/etc/systemd/system/serial-renogy.service` file to set environment variables as needed.
-   > **Note**
+   > [!IMPORTANT]
    > This service will run as root since it does not specify a `User=` and `Group=`.  This could pose a security risk, so if you decide to specify a system user for this service, make sure that user is a member of the `dialout` system group so that it has access to the serial port.
 
 3. Run the following commands:
@@ -260,7 +260,7 @@ Since the main idea of this utility is for it to run all the time, a systemd ser
     systemctl enable serial-renogy
     ```
 
-> **Note**
+> [!TIP]
 > If you make changes to `/etc/systemd/system/serial-renogy.service` after it's been started or enabled, you'll need to run `systemctl daemon-reload` to refresh systemd.
 
 
