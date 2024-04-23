@@ -244,8 +244,9 @@ Since the main idea of this utility is for it to run all the time, a systemd ser
 1. Copy the [`serial-renogy.service`](systemd/serial-renogy.service) file from the repo into `/etc/systemd/system/`.
 
 2. Edit the new `/etc/systemd/system/serial-renogy.service` file to set environment variables as needed.
-   > [!IMPORTANT]
-   > This service will run as root since it does not specify a `User=` and `Group=`.  This could pose a security risk, so if you decide to specify a system user for this service, make sure that user is a member of the `dialout` system group so that it has access to the serial port.
+
+> [!IMPORTANT]
+> This service will run as root since it does not specify a `User=` and `Group=`.  This could pose a security risk, so if you decide to specify a system user for this service, make sure that user is a member of the `dialout` system group so that it has access to the serial port.
 
 3. Run the following commands:
   - To start the service:
