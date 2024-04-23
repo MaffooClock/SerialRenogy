@@ -11,7 +11,7 @@ const argv = yargs
     })
     .option( 'baudrate', {
         alias:       'b',
-        description: 'The baud rate to use for serial communications, defaults to 9600 (e.g -b 14400)',
+        description: 'The baud rate to use for serial communications',
         type:        'integer',
         default:     9600
     })
@@ -29,7 +29,7 @@ const argv = yargs
     })
     .option( 'loglevel', {
         alias:       'l',
-        description: 'Logging level to use, values are trace, debug, info, warn, error, fatal. Defaults to error',
+        description: 'Logging level to use',
         type:        'string',
         default:     'info'
     }).choices( 'loglevel', [ 'trace', 'debug', 'info', 'warn', 'error', 'fatal' ] )
@@ -38,7 +38,9 @@ const argv = yargs
 
     .version().alias( 'version', 'v' )
 
-    .epilogue( `Environment variables set as SR_{OPTION} will be used to set options.  They can also be set in "${__dirname}/.env".` )
+    .epilogue( 'Environment variables set as SR_{OPTION} will be used to set options.  They can also be set in:' )
+    .epilogue( `    ${__dirname}/.env` )
+    .epilogue( '' )
     .epilogue( 'For more information, see https://github.com/MaffooClock/SerialRenogy' )
 
     .env( 'SR' )
