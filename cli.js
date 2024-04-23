@@ -15,6 +15,12 @@ const argv = yargs
         type:        'integer',
         default:     9600
     })
+    .option( 'device', {
+        alias:       'd',
+        description: 'The device ID (valid from 1 to 247)',
+        type:        'integer',
+        default:     1
+    })
     .option( 'address', {
         alias:       'a',
         description: 'The local address on which to serve HTTP requests',

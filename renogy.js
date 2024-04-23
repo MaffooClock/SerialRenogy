@@ -493,6 +493,8 @@ module.exports = {
             modbusClient.setTimeout( 500 );
             await modbusClient.connectRTUBuffered( args.serialport, { baudRate: args.baudrate } );
             logger.info( 'Connected to controller!' );
+
+            modbusClient.setID( args.device );
         }
         catch( e )
         {

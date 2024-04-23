@@ -227,6 +227,7 @@ This utility supports additional options as needed, please see the table below f
 | :----------- | :---- | :---------------------------------------------------- | :-------------- | :-------- |
 | --serialport | -s    | REQUIRED: Serial port your controller is connected to | -s /dev/ttyUSB0 | None      |
 | --baudrate   | -b    | The baud rate to use for serial communications        | -b 14400        | 9600      |
+| --device     | -d    | The device ID (valid from 1 to 247)                   | -d 16           | 1         |
 | --address    | -a    | The local interface in which to serve HTTP requests   | -a 0.0.0.0      | localhost |
 | --tcpport    | -p    | The TCP port on which to serve HTTP requests          | -p 8080         | 9090      |
 | --loglevel   | -l    | Sets the logging level, useful for debugging          | -l trace        | info      |
