@@ -444,8 +444,8 @@ async function readController( startRegister, numRegisters )
 
         if( modbusClient.isOpen )
         {
-            let data =  await modbusClient.readHoldingRegisters( startRegister, numRegisters );
-            if( data.data )
+            let data = await modbusClient.readHoldingRegisters( startRegister, numRegisters );
+            if( data && data.hasOwnProperty( 'data' ) )
             {
                 logger.trace( data.data, 'Raw data from controller:' );
                 return data.data;
@@ -455,7 +455,6 @@ async function readController( startRegister, numRegisters )
     catch( e )
     {
         logger.error( e );
-        process.exit( 1 );
     }
 }
 
@@ -508,6 +507,10 @@ module.exports = {
         logger.trace( 'Getting data from controller...' );
 
         const rawData = await readController( dataStartRegister, numDataRegisters );
+
+        if( !rawData )
+            return;
+        
         renogyValues.setData( rawData );
         
         // Make a copy of the data without the `setData` method
@@ -521,6 +524,10 @@ module.exports = {
         logger.trace( 'Getting information about controller...' );
 
         const rawData = await readController( infoStartRegister, numInfoRegisters );
+
+        if( !rawData )
+            return;
+        
         controllerInfo.setData( rawData );
         
         // Make a copy of the data without the `setData` method

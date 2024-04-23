@@ -82,6 +82,9 @@ async function readRenogyData()
     try {
         renogyData = await Renogy.getData();
 
+        if( !renogyData )
+            return;
+
         for( const [ key, value ] of Object.entries( renogyData ) )
         {
             if( prometheusDataMap.hasOwnProperty( key ) )
